@@ -15,11 +15,11 @@ Seatunnel 支持多种数据源连接器，您可以参考 [Seatunnel - Connecto
 ## StarRocks JDBC Connector使用前的环境准备
 
 ### 下载并安装 Mysql Jdbc驱动
+
 > **说明**
 >
 > 由于 apache license 的原因, 您必须自己提供MySQL JDBC驱动程序，具体操作如下。
  [下载](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16.jar) mysql jdbc java驱动包，然后将驱动包 mysql-connector-java-8.0.16.jar 拷贝至 **$SEATNUNNEL_HOME/lib** 路径下。
-
 
 ## 创建配置文件
 
@@ -27,7 +27,7 @@ Seatunnel 支持多种数据源连接器，您可以参考 [Seatunnel - Connecto
 
 以下示例模拟 从StarRocks数据源 读取数据写入至 StarRocks数据源 作业的配置文件。您可以根据实际使用场景修改相应参数。
 
-```
+```Plain Text
 env {
   execution.parallelism = 1
   job.mode = "BATCH"
@@ -78,7 +78,8 @@ sink {
 配置项我们配置为`lower_bound = 1, upper_bound = 10, partition_num = 2，partition_column = "age", query = "select * from test"`
 则starrocks source connector在真正执行阶段会将读取的数据拆分成两部分，进行并行读取
 每一部分执行sql如下
-```
+
+```Plain Text
 split 1: select * from test  where  (age >= 1 and age < 6)
 split 2: select * from test  where  (age >= 6 and age < 11)
 ```
@@ -116,6 +117,7 @@ cd "apache-seatunnel-incubating-${version}"
 ```
 
 ## 数据同步过程中的数据转换
+
 > 注意
 >
 > 在使用 Seatunnel 进行数据同步过程中时，如果有字段类型转换\数据过滤\多数据源Join等需求时，
