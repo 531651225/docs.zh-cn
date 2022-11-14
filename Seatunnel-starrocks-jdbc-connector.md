@@ -75,7 +75,7 @@ sink {
 如果配置了partition_column，但是没有配置`partition_upper_bound\partition_lower_bound`，则在任务准备阶段SeaTunnel通过查询数据库获取分区列的`最大值\最小值`
 
 下面举一个实例说明
-配置项我们配置为`lower_bound = 1, upper_bound = 10, partition_num = 2，partition_column = "age", sql = "select * from test"`
+配置项我们配置为`lower_bound = 1, upper_bound = 10, partition_num = 2，partition_column = "age", query = "select * from test"`
 则starrocks source connector在真正执行阶段会将读取的数据拆分成两部分，进行并行读取
 每一部分执行sql如下
 ```
