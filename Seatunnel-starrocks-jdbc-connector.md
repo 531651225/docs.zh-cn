@@ -121,5 +121,3 @@ cd "apache-seatunnel-incubating-${version}"
 > 在使用 Seatunnel 进行数据同步过程中时，如果有字段类型转换\数据过滤\多数据源Join等需求时，
 > 可以通过Seatunnel提供的 `transform` 插件，进行数据转换处理。
 Seatunnel 目前支持丰富的Transform插件，您可以参考 [Seatunnel - Transform supported](https://seatunnel.apache.org/docs/transform/common-options/) 了解详情。
-
-
